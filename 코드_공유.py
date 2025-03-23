@@ -23,7 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 ####### A 작업자 작업 수행 #######
 
-dt_model = DecisionTreeClassifier(max_depth=3, random_state=42)  
+dt_model = DecisionTreeClassifier(max_depth=5, min_samples_split=10, min_samples_leaf=4, random_state=42)
 
 # 모델 학습
 dt_model.fit(X_train, y_train)
