@@ -40,6 +40,22 @@ print(f"Decision Tree Accuracy: {accuracy_dt}")
 
 ####### B 작업자 작업 수행 #######
 
-''' 코드 작성 바랍니다 '''
+import xgboost as xgb
+from sklearn.metrics import accuracy_score
+
+# XGBoost 모델 초기화
+xgb_model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+
+# 모델 학습
+xgb_model.fit(X_train, y_train)
+
+# 예측
+y_pred_xgb = xgb_model.predict(X_test)
+
+# 성능 평가 (정확도)
+accuracy_xgb = accuracy_score(y_test, y_pred_xgb)
+
+# 결과 출력
+print(f"XGBoost Accuracy: {accuracy_xgb}")
 
 
